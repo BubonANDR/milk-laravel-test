@@ -23,4 +23,7 @@
 - VUE V3;
 - VITE;
 
+## Деплой проекта
+- по ссылке: http://bubonandry.temp.swtest.ru/
+
 
