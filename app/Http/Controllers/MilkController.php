@@ -48,13 +48,14 @@ class MilkController extends Controller
 
         $bottle = 1;
         while ($bottle <= 5) {
-            if (count($current_volume) == ($bottle - 1)) {
+         // if (count($current_volume) == ($bottle - 1)) {
+             if ((count($current_volume) == ($bottle - 1)) or ($current_volume[$bottle-1]->bottle_num!=$bottle )) {   
                 $request->request->add(['bottle_num' => $bottle]);
                 $request->request->add(['total_left' => (300 - ($request->volume))]);
                 break;
             } else {
 
-                if ((300 - ($current_volume[$bottle - 1]->s_volume)) > ($request->volume)) {
+                if ((300 - ($current_volume[$bottle - 1]->s_volume)) >= ($request->volume)) {
                     $request->request->add(['bottle_num' => $bottle]);
                     $request->request->add(['total_left' => ((300 - ($current_volume[$bottle - 1]->s_volume)) - ($request->volume))]);
                     break;
